@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+    }
+    body{
+        flex-direction: column;
+        margin: 10px;
+        padding: 20px;
+       width: 230px;
+        justify-content: center;
+        align-items: center;
+        background:linear-gradient(50deg,black,gray) ;
+    }
+    #calculator{
+        
+        left: 450px;
+        border: 2px groove rgb(101, 193, 133);
+        position: relative;
+      padding: 5px;
+        justify-content: center;
+        align-items: center;
+    }
+    input{
+        color: white;
+        background-color: black;
+        border: 2px groove rgb(68, 41, 41);
+        text-align: right;
+        padding: 10px;
+        margin: 10px;
+        align-items:right;
+        height: 30px;
+        width: 175px;
+    }
+    button{
+     
+        border-radius: 50%;
+        font-size: 20px;
+        margin: 5px;
+        height: 40px;
+        width: 40px;
+        background-color:black;
+        color: white;
+        text-align: center;
+        cursor: pointer;
+    }
+    #p{
+        background-color: rgb(188, 128, 56);
+    }
+</style>
+<body>
+    <div id="calculator">
+        <input id="inp" type="text" placeholder="0">
+        
+        <div>
+            <button id="p">Ac</button>
+            <button id="p">Del</button>
+            <button id="p">%</button>
+            <button id="p">/</button>
+        </div>
+        <div>
+            <button>7</button>
+            <button>8</button>
+            <button>9</button>
+            <button id="p">*</button>
+        </div>
+        <div>
+            <button>4</button>
+            <button>5</button>
+            <button>6</button>
+            <button id="p">-</button>
+        </div>
+        <div>
+            <button>1</button>
+            <button>2</button>
+            <button>3</button>
+            <button id="p">+</button>
+        </div>
+        <div>
+            <button>00</button>
+            <button>0</button>
+            <button>.</button>
+            <button id="p">=</button>
+        </div>
+    </div>
+    <script>
+        const input=document.getElementById('inp');
+        const button=document.querySelectorAll('button');
+        let string="";
+        for(let i=0;i<button.length;i++){
+       button[i].addEventListener('click',function(e){
+              text=e.target.innerHTML;
+    
+              if(text==='='){
+                string=eval(string);
+              }else
+              if(text==='Ac'){
+                string="";
+              }else
+              if(text==='Del'){
+                string=string.slice(0,-1);
+              }else
+              {
+                string=string+text;
+              }
+              input.value=string;
+       })
+
+
+
+        }
+    </script>
+</body>
+</html>
